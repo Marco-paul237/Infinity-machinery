@@ -276,7 +276,7 @@ const App = {
               ${stockBadge}
               ${p.repairabilityIndex ? `
                 <span class="repairability-pill text-[11px]" title="Indice officiel de réparabilité">
-                  🔧 ${p.repairabilityIndex}/10
+                  ${p.repairabilityIndex}/10
                 </span>
               ` : ''}
             </div>
@@ -480,12 +480,7 @@ const App = {
     const toast = document.createElement('div');
     toast.className = 'toast';
     
-    let icon = 'ℹ️';
-    if (type === 'success') icon = '✅';
-    if (type === 'warning') icon = '⚠️';
-    if (type === 'error') icon = '❌';
-
-    toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+    toast.innerHTML = `<span>${message}</span>`;
     container.appendChild(toast);
 
     setTimeout(() => {

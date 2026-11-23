@@ -62,9 +62,9 @@
   <div class="top-notice-bar no-print">
     <div class="max-w-7xl mx-auto w-full flex flex-wrap justify-between items-center gap-2 text-xs">
       <div class="flex items-center gap-4">
-        <span>📍 <strong>Boutique & Atelier :</strong> 42 Rue du Commerce & des Artisans</span>
+        <span><strong>Boutique & Atelier :</strong> 42 Rue du Commerce & des Artisans</span>
         <span class="hidden sm:inline text-slate-500">|</span>
-        <span class="hidden sm:inline">📞 <strong>Ligne directe de Théodore :</strong> 01 43 55 28 90</span>
+        <span class="hidden sm:inline"><strong>Ligne directe de Théodore :</strong> 01 43 55 28 90</span>
       </div>
       <div class="flex items-center gap-3">
         <span class="hidden md:inline text-slate-400">Ouvert Mar-Sam • Dépannage sous 48h</span>
@@ -91,9 +91,6 @@
           <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#0F172A] block leading-none">
             INFINITY MACHINERY
           </span>
-          <span class="text-[11px] font-semibold tracking-wider uppercase text-[#C25E34]">
-            Électroménager Durable & Atelier • Deugueu Hemedak Théodore
-          </span>
         </div>
       </a>
 
@@ -109,7 +106,7 @@
       <!-- Boutons d'action rapide : Diagnostic & Panier -->
       <div class="flex items-center gap-2.5">
         <button onclick="App.openRepairModal()" class="hidden sm:inline-flex btn btn-outline btn-sm text-xs font-semibold">
-          🛠️ Diagnostic panne
+        Diagnostic panne
         </button>
 
         <button onclick="Cart.openDrawer()" class="relative btn btn-dark btn-sm font-semibold flex items-center gap-2 shadow-sm">
@@ -184,10 +181,7 @@
                 <img src="/images/theodore_deugueu.jpg" alt="Deugueu Hemedak Théodore" class="w-full h-[440px] sm:h-[500px] object-cover object-top rounded-2xl">
               </div>
 
-              <!-- Badge officiel de maître artisan -->
-              <div class="absolute -top-4 -right-4 bg-gradient-to-r from-amber-600 to-[#C25E34] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg border-2 border-white flex items-center gap-1.5">
-                <span>★</span> Maître Électromécanicien
-              </div>
+             
 
               <!-- Encadré flottant avec la parole d'artisan -->
               <div class="mt-4 sm:absolute sm:-bottom-8 sm:-left-8 bg-white border border-[#CBD5E1] p-5 rounded-2xl shadow-xl max-w-sm">
@@ -229,9 +223,6 @@
           <!-- Carte 1 : Gros Électroménager -->
           <div onclick="App.selectCategoryAndGo('gros-electro')" class="category-card group">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
-                🧺
-              </div>
               <h3 class="font-bold text-base text-slate-900 mb-1">Gros Électroménager</h3>
               <p class="text-xs text-slate-500 leading-relaxed">
                 Lave-linge Miele, réfrigérateurs Liebherr, fours pyrolyse Bosch, tables induction.
@@ -246,9 +237,6 @@
           <!-- Carte 2 : Petit Électroménager -->
           <div onclick="App.selectCategoryAndGo('petit-electro')" class="category-card group">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
-                ☕
-              </div>
               <h3 class="font-bold text-base text-slate-900 mb-1">Petit Électroménager</h3>
               <p class="text-xs text-slate-500 leading-relaxed">
                 Machines Espresso De'Longhi, robots KitchenAid Artisan, aspirateurs complets.
@@ -263,9 +251,6 @@
           <!-- Carte 3 : Reconditionné Certifié Atelier -->
           <div onclick="App.selectCategoryAndGo('reconditionne')" class="category-card group border-amber-300 bg-amber-50/20">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
-                ✨
-              </div>
               <h3 class="font-bold text-base text-slate-900 mb-1">Reconditionné Atelier</h3>
               <p class="text-xs text-slate-500 leading-relaxed">
                 Révisé 28 points, détartré, joints neufs et garanti 2 ans pièces et main d'œuvre.
@@ -280,9 +265,6 @@
           <!-- Carte 4 : Atelier & Dépannage -->
           <div onclick="App.openRepairModal()" class="category-card group">
             <div>
-              <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">
-                🛠️
-              </div>
               <h3 class="font-bold text-base text-slate-900 mb-1">Atelier & Dépannage</h3>
               <p class="text-xs text-slate-500 leading-relaxed">
                 Votre appareil tousse ? Déposez-le pour un diagnostic complet sous 48h par Théodore.
@@ -402,7 +384,7 @@
           Petit Électroménager (Espresso, Robots, Aspirateurs)
         </button>
         <button class="catalog-cat-btn px-4 py-2 rounded-xl text-xs font-semibold transition bg-white text-slate-700 hover:bg-[#F1F5F9] border border-[#E2E8F0]" data-category="reconditionne">
-          ✨ Reconditionné Atelier Garanti 2 Ans
+          Reconditionné Atelier Garanti 2 Ans
         </button>
       </div>
     </div>
@@ -418,7 +400,6 @@
 
     <!-- État vide -->
     <div id="catalog-empty-state" class="p-12 text-center bg-white border border-[#E2E8F0] rounded-2xl" style="display: none;">
-      <span class="text-4xl block mb-3">🔍</span>
       <h3 class="text-lg font-bold text-slate-900">Aucun appareil ne correspond à votre sélection</h3>
       <p class="text-xs text-slate-500 mt-1 mb-4">Essayez d'ajuster vos critères ou de réinitialiser la recherche.</p>
       <button onclick="document.getElementById('catalog-search-input').value=''; App.selectedCategory='all'; App.selectedCondition='all'; App.renderCatalog();" class="btn btn-secondary btn-sm">
@@ -532,7 +513,7 @@
     <!-- Charte de qualité signée Théodore -->
     <div class="mt-16 bg-[#F1F5F9] border-2 border-[#CBD5E1] rounded-3xl p-8 sm:p-12 text-center">
       <div class="w-16 h-16 rounded-full bg-[#0F172A] text-white flex items-center justify-center text-2xl mx-auto mb-4 border-2 border-[#C25E34]">
-        ⚖️
+        
       </div>
       <h3 class="text-2xl font-serif font-bold text-slate-900">La Charte d'Honneur de Théodore</h3>
       <p class="text-sm text-slate-600 max-w-xl mx-auto mt-2 mb-8">Les 4 règles d'or appliquées quotidiennement chez Infinity Machinery :</p>
@@ -566,7 +547,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
       <div class="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
-        <div class="text-2xl mb-3">🔍</div>
+        
         <h3 class="font-bold text-lg text-slate-900 mb-2">1. Dépôt & Diagnostic 48h</h3>
         <p class="text-xs text-slate-600 leading-relaxed">
           Déposez votre petit électroménager à la boutique (ou demandez un enlèvement pour le gros électro). Nous démontons l'appareil et identifions la panne exacte.
@@ -574,7 +555,7 @@
       </div>
 
       <div class="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
-        <div class="text-2xl mb-3">📋</div>
+        
         <h3 class="font-bold text-lg text-slate-900 mb-2">2. Devis Clair Sans Surprise</h3>
         <p class="text-xs text-slate-600 leading-relaxed">
           Un devis détaillé vous est présenté : coût des pièces constructeur + coût de la main d'œuvre. Rien n'est engagé sans votre validation écrite préalable.
@@ -582,7 +563,7 @@
       </div>
 
       <div class="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
-        <div class="text-2xl mb-3">✨</div>
+        
         <h3 class="font-bold text-lg text-slate-900 mb-2">3. Réparation & Garantie 6 Mois</h3>
         <p class="text-xs text-slate-600 leading-relaxed">
           Remplacement des pièces d'usure, détartrage, nettoyage complet et test fonctionnel. Toute intervention d'atelier est garantie 6 mois pièces et main d'œuvre.
@@ -594,7 +575,7 @@
       <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">Prendre rendez-vous pour un diagnostic</h3>
       <p class="text-sm text-slate-600 mb-6">Remplissez notre formulaire de dépôt d'appareil pour être rappelé par Théodore dans la journée.</p>
       <button onclick="App.openRepairModal()" class="btn btn-primary px-6 py-3">
-        🛠️ Ouvrir le formulaire de diagnostic
+        Ouvrir le formulaire de diagnostic
       </button>
     </div>
   </main>
@@ -644,15 +625,15 @@
           <h3 class="text-xl font-serif font-bold text-slate-900 mb-4">Services Pratiques</h3>
           <ul class="space-y-3 text-xs text-slate-600 leading-relaxed">
             <li class="flex items-start gap-2">
-              <span class="text-amber-800 font-bold">🅿️</span>
+              
               <span><strong>Arrêt minute déchargement :</strong> Juste devant la boutique pour charger/décharger un appareil lourd.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-amber-800 font-bold">🛒</span>
+              
               <span><strong>Retrait 2h :</strong> Vos commandes passées sur ce site sont préparées en 2 heures par Théodore.</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-amber-800 font-bold">💳</span>
+              
               <span><strong>Paiements :</strong> CB, Espèces, Chèques, Virement instantané au comptoir ou à la livraison.</span>
             </li>
           </ul>
@@ -688,7 +669,7 @@
 
       <div class="flex items-center gap-3">
         <button onclick="App.switchView('catalog')" class="btn btn-secondary btn-sm">
-          👁️ Voir la boutique publique
+          Voir la boutique publique
         </button>
         <button onclick="InventoryAdmin.openAddModal()" class="btn btn-primary btn-sm shadow-sm">
           + Ajouter un appareil au stock
@@ -732,10 +713,10 @@
     <!-- Onglets Admin -->
     <div class="flex border-b border-[#E2E8F0] mb-6 gap-6">
       <button onclick="document.getElementById('admin-tab-inventory').style.display='block'; document.getElementById('admin-tab-orders').style.display='none'; document.getElementById('admin-tab-repairs').style.display='none'; this.classList.add('border-b-2', 'border-[#C25E34]', 'text-[#C25E34]', 'font-bold'); this.nextElementSibling.classList.remove('border-b-2', 'border-[#C25E34]', 'text-[#C25E34]', 'font-bold');" class="pb-3 text-sm font-bold border-b-2 border-[#C25E34] text-[#C25E34] transition">
-        📦 Inventaire & Stocks Réels
+        Inventaire & Stocks Réels
       </button>
       <button onclick="document.getElementById('admin-tab-inventory').style.display='none'; document.getElementById('admin-tab-orders').style.display='block'; document.getElementById('admin-tab-repairs').style.display='none'; this.classList.add('border-b-2', 'border-[#C25E34]', 'text-[#C25E34]', 'font-bold'); this.previousElementSibling.classList.remove('border-b-2', 'border-[#C25E34]', 'text-[#C25E34]', 'font-bold');" class="pb-3 text-sm text-slate-600 hover:text-slate-900 transition">
-        🛍️ Commandes Clients (<span id="admin-orders-badge">0</span>)
+        Commandes Clients (<span id="admin-orders-badge">0</span>)
       </button>
     </div>
 
@@ -756,10 +737,10 @@
 
         <div class="flex items-center gap-2">
           <button id="inventory-export-csv-btn" class="btn btn-secondary btn-sm text-xs">
-            📥 Exporter CSV
+            Exporter CSV
           </button>
           <button id="inventory-reset-btn" class="btn btn-outline btn-sm text-xs text-slate-500 hover:text-red-700" title="Réinitialiser avec les articles de démo">
-            🔄 Réinitialiser Démo
+            Réinitialiser Démo
           </button>
         </div>
       </div>
@@ -796,7 +777,7 @@
       <div class="flex justify-between items-center mb-2">
         <p class="text-xs text-slate-600">Gérez les commandes passées par vos clients. L'annulation d'une commande recrédite automatiquement le stock.</p>
         <button onclick="OrdersAdmin.loadOrders()" class="btn btn-secondary btn-sm text-xs">
-          🔄 Actualiser les commandes
+          Actualiser les commandes
         </button>
       </div>
 
@@ -850,16 +831,16 @@
         <div>
           <h4 class="font-serif font-semibold text-sm text-slate-200 mb-3">Engagements</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            ✓ 2 ans de garantie intégrale atelier<br>
-            ✓ Pièces détachées disponibles 10 à 15 ans<br>
-            ✓ Livraison & mise en service par nos soins<br>
-            ✓ Reconditionné testé sur 28 points
+            2 ans de garantie intégrale atelier<br>
+            Pièces détachées disponibles 10 à 15 ans<br>
+            Livraison & mise en service par nos soins<br>
+            Reconditionné testé sur 28 points
           </p>
         </div>
       </div>
 
       <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-wrap justify-between items-center gap-4">
-        <span>© Infinity Machinery — Deugueu Hemedak Théodore. Fait pour durer. Tous droits réservés.</span>
+        <span>&copy; Infinity Machinery — Deugueu Hemedak Théodore. Fait pour durer. Tous droits réservés.</span>
         <span>Site web et système d'inventaire développés pour soutenir les activités de Théodore.</span>
       </div>
     </div>
@@ -885,7 +866,7 @@
         <div id="cart-items-list" class="my-4 overflow-y-auto max-h-[50vh] pr-1"></div>
 
         <div id="cart-empty-state" class="py-12 flex flex-col items-center justify-center text-center text-slate-500">
-          <span class="text-4xl mb-2">🧺</span>
+          
           <p class="font-semibold text-slate-800">Votre panier est vide</p>
           <p class="text-xs mt-1">Parcourez le catalogue pour découvrir nos appareils disponibles.</p>
           <button onclick="Cart.closeDrawer(); App.switchView('catalog');" class="btn btn-secondary btn-sm mt-4">
@@ -1009,8 +990,8 @@
   <!-- MODALE 3 : BON DE CONFIRMATION DE COMMANDE -->
   <div id="order-confirmation-modal" class="modal-backdrop" style="display: none;">
     <div class="modal-content p-6 sm:p-8 max-w-lg text-center">
-      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-3xl mx-auto mb-4 border-2 border-emerald-300">
-        ✓
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4 border-2 border-emerald-300">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
       </div>
       <h3 class="font-serif font-bold text-2xl text-slate-900">Commande Confirmée !</h3>
       <p class="text-xs text-slate-600 mt-1 mb-6">
@@ -1060,7 +1041,7 @@
 
       <div class="flex justify-center gap-3">
         <button onclick="window.print()" class="btn btn-secondary btn-sm">
-          🖨️ Imprimer le reçu
+          Imprimer le reçu
         </button>
         <button onclick="Cart.closeOrderConfirmationModal()" class="btn btn-primary btn-sm">
           Retour à la boutique
@@ -1087,7 +1068,7 @@
           </div>
 
           <div class="mt-4 p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs">
-            <span class="font-bold text-amber-900 block mb-1">🛡️ Engagement Atelier :</span>
+            <span class="font-bold text-amber-900 block mb-1">Engagement Atelier :</span>
             <p id="detail-warranty" class="text-amber-800"></p>
           </div>
         </div>
@@ -1207,7 +1188,7 @@
             Déverrouiller la Gestion
           </button>
           <button type="button" id="admin-demo-bypass-btn" class="w-full btn btn-outline btn-sm py-2 text-xs">
-            👉 Démonstration en 1 clic (Code: 1994)
+            Démonstration en 1 clic (Code: 1994)
           </button>
         </div>
       </form>
