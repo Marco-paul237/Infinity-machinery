@@ -1,0 +1,27 @@
+{
+  "name": "infinity-machinery",
+  "version": "1.1.0",
+  "description": "Infinity Machinery — Électroménager durable, système de commande en ligne et gestion d'inventaire par Deugueu Hemedak Théodore",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test/verify.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Marco-paul237/Infinity-machinery.git"
+  },
+  "keywords": [
+    "infinity-machinery",
+    "electromenager",
+    "reconditionne",
+    "inventaire",
+    "atelier",
+    "ecommerce",
+    "reparation",
+    "deugueu-hemedak-theodore"
+  ],
+  "author": "Deugueu Hemedak Théodore",
+  "license": "ISC"
+}

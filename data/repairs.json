@@ -1,0 +1,42 @@
+[
+  {
+    "id": "REP-2024-001",
+    "createdAt": "2024-11-05T10:00:00.000Z",
+    "customer": {
+      "name": "Jean-Pierre Vasseur",
+      "phone": "06 12 34 56 78",
+      "email": "jp.vasseur@wanadoo.fr"
+    },
+    "appliance": {
+      "type": "Lave-linge",
+      "brand": "Electrolux",
+      "model": "PerfectCare 600",
+      "approxAge": "6 ans"
+    },
+    "issue": "Bruit métallique très sourd lors de l'essorage. Tambour qui semble avoir du jeu.",
+    "status": "in_progress",
+    "statusLabel": "En cours d'intervention en atelier",
+    "quote": 85,
+    "diagnosis": "Roulements de palier usés suite à fuite du joint spi. Pièces reçues, remontage prévu vendredi."
+  },
+  {
+    "id": "REP-2024-002",
+    "createdAt": "2024-11-08T15:20:00.000Z",
+    "customer": {
+      "name": "Sophie Leroux",
+      "phone": "06 99 88 77 66",
+      "email": "sophie.leroux@outlook.com"
+    },
+    "appliance": {
+      "type": "Machine expresso à grain",
+      "brand": "Jura",
+      "model": "ENA Micro 9",
+      "approxAge": "4 ans"
+    },
+    "issue": "Le café coule au goutte-à-goutte et message d'erreur 'Système vide' répété.",
+    "status": "completed",
+    "statusLabel": "Réparé — Prêt à être récupéré",
+    "quote": 60,
+    "diagnosis": "Débitmètre entartré + électrovanne 2 voies bloquée. Démontage, bain ultrasons et joints remplacés."
+  }
+]

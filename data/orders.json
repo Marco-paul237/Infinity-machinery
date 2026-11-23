@@ -1,0 +1,64 @@
+[
+  {
+    "id": "CMD-2024-001",
+    "createdAt": "2024-10-14T09:30:00.000Z",
+    "customer": {
+      "firstName": "Hélène",
+      "lastName": "Moreau",
+      "email": "helene.moreau@orange.fr",
+      "phone": "06 42 19 88 05",
+      "address": "14 Rue des Lilas, 75020 Paris",
+      "instructions": "Bâtiment B, 2ème étage avec ascenseur, code porte 45A12"
+    },
+    "deliveryMethod": "delivery",
+    "deliveryLabel": "Livraison & Installation par Michel",
+    "paymentMethod": "on_delivery",
+    "paymentLabel": "Paiement à la livraison (CB / Chèque)",
+    "items": [
+      {
+        "id": "prod-003",
+        "sku": "LV-BOS-REC-SIL",
+        "title": "Lave-Vaisselle Bosch SilencePlus 13 Couverts (Reconditionné)",
+        "price": 389,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 389,
+    "deliveryFee": 29,
+    "total": 418,
+    "status": "delivered",
+    "statusLabel": "Livré & Installé",
+    "notes": "Ancien lave-vaisselle repris pour recyclage pièces en atelier."
+  },
+  {
+    "id": "CMD-2024-002",
+    "createdAt": "2024-11-02T14:15:00.000Z",
+    "customer": {
+      "firstName": "Antoine",
+      "lastName": "Garnier",
+      "email": "a.garnier@gmail.com",
+      "phone": "06 78 54 12 90",
+      "address": "Boutique Atelier Broquante",
+      "instructions": "Passage en fin d'après-midi vers 17h30"
+    },
+    "deliveryMethod": "pickup",
+    "deliveryLabel": "Retrait gratuit à la boutique",
+    "paymentMethod": "store_pickup",
+    "paymentLabel": "Paiement au comptoir",
+    "items": [
+      {
+        "id": "prod-004",
+        "sku": "CAFE-DEL-MAG-S",
+        "title": "Machine Espresso à Grain De'Longhi Magnifica S (Reconditionnée)",
+        "price": 249,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 249,
+    "deliveryFee": 0,
+    "total": 249,
+    "status": "ready",
+    "statusLabel": "Prête en magasin pour retrait",
+    "notes": "Client averti par SMS."
+  }
+]

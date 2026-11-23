@@ -1,0 +1,75 @@
+{
+  "shop": {
+    "name": "Infinity Machinery",
+    "legalName": "Infinity Machinery — Maison Deugueu Hemedak Théodore",
+    "subtitle": "Électroménager Durable, Sélection Rigoureuse & Atelier d'Entretien",
+    "tagline": "L'alliance de la robustesse industrielle et du savoir-faire d'artisan depuis plus de 25 ans",
+    "ownerName": "Deugueu Hemedak Théodore",
+    "ownerTitle": "Fondateur & Maître Électromécanicien",
+    "ownerPhoto": "/images/theodore_deugueu.jpg",
+    "address": "42 Rue du Commerce & des Artisans, Paris",
+    "phone": "01 43 55 28 90",
+    "mobile": "06 18 92 41 33",
+    "email": "contact@infinity-machinery.fr",
+    "hours": {
+      "weekdays": "Mardi au Vendredi : 9h00 - 12h30 & 14h00 - 19h00",
+      "saturday": "Samedi : 9h30 - 18h30 en continu",
+      "closed": "Dimanche & Lundi : Fermé (dédié aux interventions et reconditionnement)"
+    },
+    "deliveryZone": "Livraison locale et installation complète à domicile",
+    "adminPin": "1994"
+  },
+  "autobiography": {
+    "quote": "« Chez Infinity Machinery, chaque machine est choisie ou reconditionnée pour durer. Vous n'achetez pas un simple carton anonyme : vous achetez un équipement vérifié de mes propres mains, avec un conseil sincère forgé par des décennies de métier et un engagement d'artisan à vous accompagner. »",
+    "author": "Deugueu Hemedak Théodore",
+    "photo": "/images/theodore_deugueu.jpg",
+    "chapters": [
+      {
+        "id": "chap-1",
+        "period": "1988 — 1993 : L'Apprentissage",
+        "title": "Chapitre I : L'école de la rigueur et la passion des circuits",
+        "content": "J'ai toujours été fasciné par la façon dont les machines fonctionnent. Très jeune, je ne me contentais pas d'utiliser un appareil : je voulais comprendre ce qui faisait tourner le moteur, comment le courant était distribué, pourquoi un relais s'enclenchait et comment une simple panne mécanique pouvait être résolue avec de la patience et du bon sens.\n\nCet apprentissage exigeant m'a forgé : le respect scrupuleux des normes de sécurité, la maîtrise des mesures électriques et l'écoute attentive de chaque vibration ou bruit anormal d'un tambour ou d'un compresseur. On m'a transmis une règle d'or que je n'ai jamais oubliée : un appareil de qualité est un investissement pour une famille, et notre devoir est de le faire durer."
+      },
+      {
+        "id": "chap-2",
+        "period": "1994 — 2005 : L'Enseigne & La Proximité",
+        "title": "Chapitre II : L'ouverture du magasin et le lien humain",
+        "content": "Quand j'ai ouvert ma propre boutique d'électroménager, j'avais une conviction profonde : le commerce doit être fondé sur la parole donnée et la relation humaine directe. Dans les grandes surfaces impersonnelles, personne ne connaît votre nom et personne ne sera là si votre machine a un problème deux mois après l'achat.\n\nDans ma boutique, chaque client qui passe la porte est reçu avec considération. Qu'il s'agisse de choisir un réfrigérateur familial, un four robuste ou une machine expresso, je prends le temps de comprendre les besoins réels, l'espace disponible et l'usage quotidien. C'est cette proximité qui a bâti la réputation de notre maison au fil des années."
+      },
+      {
+        "id": "chap-3",
+        "period": "2006 — 2018 : La Résistance au Jetable",
+        "title": "Chapitre III : Le refus du tout-jetable et le choix de la durabilité",
+        "content": "Au fil des décennies, j'ai vu l'industrie changer : prolifération des plastiques fragiles, pièces scellées impossibles à réparer, obsolescence délibérément accélérée... J'ai toujours refusé d'embarquer mes clients dans cette spirale du gaspillage.\n\nC'est pourquoi je sélectionne méticuleusement chaque référence présente dans mon magasin : uniquement des marques qui assurent la disponibilité de leurs pièces détachées pendant au moins 10 à 15 ans, avec des cuves métalliques, des moteurs à induction fiables et des circuits accessibles. Et pour les appareils reconditionnés à l'atelier, nous effectuons un contrôle exhaustif sur 28 points de vérification avant de les certifier et de les garantir."
+      },
+      {
+        "id": "chap-4",
+        "period": "Aujourd'hui : Infinity Machinery",
+        "title": "Chapitre IV : L'ère de la modernisation et de la transmission",
+        "content": "Aujourd'hui, avec la marque Infinity Machinery, nous franchissons une nouvelle étape en associant la solidité de nos machines à une plateforme moderne. Mon neveu m'a aidé à concevoir ce site et ce système de gestion d'inventaire complet pour que nos clients puissent réserver, commander et suivre la disponibilité de nos équipements en temps réel.\n\nVous y trouverez mes vrais retours d'expérience, les fiches techniques exactes sans discours marketing creux, et la garantie d'un service d'atelier toujours présent. Bienvenue chez Infinity Machinery !"
+      }
+    ],
+    "principles": [
+      {
+        "icon": "shield-check",
+        "title": "Engagement & Parole d'Honneur",
+        "description": "Chaque modèle vendu est garanti directement par notre maison, avec un suivi personnalisé et un interlocuteur unique : Théodore."
+      },
+      {
+        "icon": "wrench",
+        "title": "Réparabilité Maximale",
+        "description": "Nous privilégions les appareils démontables avec disponibilité des composants garantie pendant 10 à 15 ans par les constructeurs."
+      },
+      {
+        "icon": "truck",
+        "title": "Livraison & Installation Complète",
+        "description": "Nous ne déposons pas un carton sur le trottoir : installation à domicile, mise à niveau au millimètre, raccordement et reprise."
+      },
+      {
+        "icon": "recycle",
+        "title": "Contrôle Atelier 28 Points",
+        "description": "Nos appareils reconditionnés sont révisés de fond en comble, détartrés, équipés de joints neufs et testés en conditions réelles."
+      }
+    ]
+  }
+}
