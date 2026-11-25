@@ -51,9 +51,32 @@ const DataStore = {
     if (filters.search) params.append('search', filters.search);
     if (filters.inStock) params.append('inStock', 'true');
 
-    const res = await fetch(`/api/inventory?${params.toString()}`);
-    if (!res.ok) throw new Error('Impossible de charger l\'inventaire depuis le serveur');
-    return await res.json();
+    try {
+      const res = await fetch(`/api/inventory?${params.toString()}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          try { localStorage.setItem('infinity_inventory_cache', JSON.stringify(data)); } catch (e) {}
+        }
+        return data;
+      }
+    } catch (netErr) {
+      console.warn('[DataStore] Erreur réseau /api/inventory, tentative fallback cache local:', netErr);
+    }
+
+    // Fallback de secours depuis le cache local
+    try {
+      const cached = localStorage.getItem('infinity_inventory_cache');
+      if (cached) {
+        let items = JSON.parse(cached);
+        if (filters.category && filters.category !== 'all') items = items.filter(i => i.category === filters.category);
+        if (filters.condition && filters.condition !== 'all') items = items.filter(i => i.condition === filters.condition);
+        if (filters.inStock) items = items.filter(i => i.stock > 0);
+        return items;
+      }
+    } catch (e) {}
+
+    throw new Error('Impossible de charger l\'inventaire depuis le serveur');
   },
 
   /**
@@ -124,6 +147,9 @@ const DataStore = {
     const res = await fetch('/api/inventory/reset', { method: 'POST' });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Erreur lors de la réinitialisation');
+    if (data.inventory && Array.isArray(data.inventory)) {
+      try { localStorage.setItem('infinity_inventory_cache', JSON.stringify(data.inventory)); } catch (e) {}
+    }
     return data;
   },
 

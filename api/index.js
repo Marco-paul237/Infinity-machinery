@@ -637,29 +637,45 @@ function sendJson(res, statusCode, data) {
  */
 module.exports = async function handler(req, res) {
   const parsedUrl = url.parse(req.url, true);
-  const query = parsedUrl.query || {};
+  // Fusionner les query params de l'URL et ceux injectés par Vercel (req.query)
+  const query = { ...(parsedUrl.query || {}), ...(req.query || {}) };
   const method = req.method;
 
-  // Détection du chemin réel (compatible Vercel Serverless rewrites & direct)
+  // Détection robuste du chemin réel (compatible Vercel Serverless direct, catch-all & rewrites)
   const matchedHeader = req.headers['x-matched-path'] || req.headers['x-invoke-path'] || req.headers['x-forwarded-uri'];
   let pathname = '';
 
-  if (query.__route) {
+  // 1. Si appelé via Vercel catch-all api/[...path].js (query.path)
+  if (query.path) {
+    const subpath = Array.isArray(query.path) ? query.path.join('/') : query.path;
+    pathname = '/api/' + subpath;
+  }
+  // 2. Si un paramètre __route est présent (cas rewrite personnalisé)
+  else if (query.__route) {
     pathname = '/api/' + query.__route;
-  } else if (matchedHeader && matchedHeader.startsWith('/api')) {
+  }
+  // 3. Si un header de proxy Vercel indique la route demandée
+  else if (matchedHeader && matchedHeader.startsWith('/api') && !matchedHeader.includes('[...')) {
     pathname = matchedHeader;
-  } else {
+  }
+  // 4. Par défaut, utiliser le pathname de parsedUrl
+  else {
     pathname = parsedUrl.pathname || '';
   }
 
-  // Si pathname est /api/index.js ou /api/index, fallback sur les headers ou /api
-  if (pathname === '/api/index.js' || pathname === '/api/index' || pathname === '/index.js') {
-    if (matchedHeader) {
+  // Si le pathname se termine par [...path] ou index.js ou est vide, tenter de reconstituer depuis l'URL brute
+  if (pathname.includes('[...') || pathname.endsWith('index.js') || pathname === '/api' || pathname === '') {
+    if (query.path) {
+      const subpath = Array.isArray(query.path) ? query.path.join('/') : query.path;
+      pathname = '/api/' + subpath;
+    } else if (matchedHeader && !matchedHeader.includes('[...')) {
       pathname = matchedHeader;
+    } else if (parsedUrl.pathname && !parsedUrl.pathname.includes('[...')) {
+      pathname = parsedUrl.pathname;
     }
   }
 
-  // Harmonisation du préfixe /api si appelé sans
+  // Harmonisation du préfixe /api si absent
   if (!pathname.startsWith('/api') && pathname.startsWith('/')) {
     pathname = '/api' + pathname;
   }
@@ -858,17 +874,24 @@ module.exports = async function handler(req, res) {
 
   // 7. POST /api/inventory/reset (Reset démo — recharge les données seed d'origine)
   if (method === 'POST' && pathname === '/api/inventory/reset') {
-    // Utilise readJson qui essaiera les fichiers puis le seed embarqué en fallback
-    // On vide d'abord le cache pour forcer un rechargement frais
+    // Vide le cache mémoire pour garantir une restauration fraîche
     delete memoryStore['inventory.backup.json'];
+    delete memoryStore['inventory.json'];
+
     const backupData = readJson('inventory.backup.json', null);
-    if (backupData && Array.isArray(backupData) && backupData.length > 0) {
-      // Deep-clone pour éviter de lier les deux caches
-      const freshCopy = JSON.parse(JSON.stringify(backupData));
-      writeJson('inventory.json', freshCopy);
-      return sendJson(res, 200, { message: 'Inventaire restauré', count: freshCopy.length });
-    }
-    return sendJson(res, 400, { error: 'Sauvegarde initiale introuvable' });
+    // Si backupData est disponible, on l'utilise, sinon on utilise directement SEED_INVENTORY
+    const sourceData = (backupData && Array.isArray(backupData) && backupData.length > 0)
+      ? backupData
+      : SEED_INVENTORY;
+
+    // Deep-clone pour couper toute référence
+    const freshCopy = JSON.parse(JSON.stringify(sourceData));
+    writeJson('inventory.json', freshCopy);
+    return sendJson(res, 200, { 
+      message: 'Inventaire de démonstration restauré avec succès', 
+      count: freshCopy.length,
+      inventory: freshCopy
+    });
   }
 
   // 8. GET /api/orders (Liste commandes)
