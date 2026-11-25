@@ -213,7 +213,11 @@ function serveStatic(req, res, pathname) {
  */
 const server = http.createServer(async (req, res) => {
   const parsedUrl = url.parse(req.url, true);
-  const { pathname, query } = parsedUrl;
+  let pathname = parsedUrl.pathname || '/';
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    pathname = pathname.slice(0, -1);
+  }
+  const query = parsedUrl.query || {};
   const method = req.method;
 
   // Gestion du pre-flight CORS pour les requêtes modernes

@@ -11,7 +11,7 @@
       "instructions": "Bâtiment B, 2ème étage avec ascenseur, code porte 45A12"
     },
     "deliveryMethod": "delivery",
-    "deliveryLabel": "Livraison & Installation par Michel",
+    "deliveryLabel": "Livraison & Installation par Théodore",
     "paymentMethod": "on_delivery",
     "paymentLabel": "Paiement à la livraison (CB / Chèque)",
     "items": [
@@ -38,7 +38,7 @@
       "lastName": "Garnier",
       "email": "a.garnier@gmail.com",
       "phone": "06 78 54 12 90",
-      "address": "Boutique Atelier Broquante",
+      "address": "Boutique Atelier Infinity Machinery",
       "instructions": "Passage en fin d'après-midi vers 17h30"
     },
     "deliveryMethod": "pickup",

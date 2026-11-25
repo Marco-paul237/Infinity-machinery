@@ -106,7 +106,48 @@ const cleanedOrders = reloadedOrders.filter(o => o.id !== orderId);
 writeJson('orders.json', cleanedOrders);
 console.log(`[PASS] Test order cleaned up.`);
 
-// 4. Verify Autobiography & Settings
+// 4. Test Product Addition (Simulating addProduct)
+console.log('Testing adding a new product...');
+const initialCount = restoredInventory.length;
+const testNewProduct = {
+  id: `prod-test-${Date.now().toString().slice(-4)}`,
+  sku: 'ART-TEST-99',
+  title: 'Lave-Vaisselle Test Bosch',
+  brand: 'Bosch',
+  category: 'gros-electro',
+  subCategory: 'Lave-vaisselle',
+  condition: 'Neuf',
+  conditionLabel: 'Neuf d\'usine (Garanti 2 ans)',
+  price: 499,
+  costPrice: 320,
+  stock: 5,
+  minStockAlert: 2,
+  energyClass: 'A',
+  repairabilityIndex: 9.0,
+  warrantyYears: 2,
+  image: 'https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=800&q=80',
+  shortDescription: 'Appareil de test.',
+  description: 'Description test.',
+  uncleNote: 'Avis test Théodore.',
+  specs: { "Garantie": "2 ans" },
+  featured: false
+};
+
+restoredInventory.unshift(testNewProduct);
+writeJson('inventory.json', restoredInventory);
+
+const inventoryAfterAdd = readJson('inventory.json');
+if (inventoryAfterAdd.length !== initialCount + 1) {
+  throw new Error('Product was not added to inventory');
+}
+console.log(`[PASS] New product "${testNewProduct.title}" successfully added (total: ${inventoryAfterAdd.length}).`);
+
+// Clean up test product
+const cleanedInventory = inventoryAfterAdd.filter(p => p.id !== testNewProduct.id);
+writeJson('inventory.json', cleanedInventory);
+console.log(`[PASS] Test product cleaned up.`);
+
+// 5. Verify Autobiography & Settings
 const settings = readJson('settings.json');
 if (!settings.shop.name || !settings.autobiography.chapters || settings.autobiography.chapters.length < 4) {
   throw new Error('Settings or autobiography chapters missing or incomplete');

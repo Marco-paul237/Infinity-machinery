@@ -637,13 +637,36 @@ function sendJson(res, statusCode, data) {
  */
 module.exports = async function handler(req, res) {
   const parsedUrl = url.parse(req.url, true);
-  let pathname = parsedUrl.pathname || '';
   const query = parsedUrl.query || {};
   const method = req.method;
 
-  // Harmonisation du préfixe /api si appelé via rewrite
+  // Détection du chemin réel (compatible Vercel Serverless rewrites & direct)
+  const matchedHeader = req.headers['x-matched-path'] || req.headers['x-invoke-path'] || req.headers['x-forwarded-uri'];
+  let pathname = '';
+
+  if (query.__route) {
+    pathname = '/api/' + query.__route;
+  } else if (matchedHeader && matchedHeader.startsWith('/api')) {
+    pathname = matchedHeader;
+  } else {
+    pathname = parsedUrl.pathname || '';
+  }
+
+  // Si pathname est /api/index.js ou /api/index, fallback sur les headers ou /api
+  if (pathname === '/api/index.js' || pathname === '/api/index' || pathname === '/index.js') {
+    if (matchedHeader) {
+      pathname = matchedHeader;
+    }
+  }
+
+  // Harmonisation du préfixe /api si appelé sans
   if (!pathname.startsWith('/api') && pathname.startsWith('/')) {
     pathname = '/api' + pathname;
+  }
+
+  // Normalisation : suppression du slash final éventuel (/api/inventory/ -> /api/inventory)
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    pathname = pathname.slice(0, -1);
   }
 
   // CORS pre-flight
